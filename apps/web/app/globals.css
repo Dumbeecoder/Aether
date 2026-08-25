@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aether design tokens — dark-first. Values are HSL triplets (no `hsl()` wrapper)
+   so Tailwind can compose them with opacity modifiers. */
+:root {
+  --background: 220 15% 6%;
+  --foreground: 210 20% 96%;
+  --surface: 220 14% 9%;
+  --surface-2: 220 13% 13%;
+  --border: 220 10% 18%;
+  --muted: 220 10% 16%;
+  --muted-foreground: 215 12% 60%;
+  --accent: 45 93% 58%;          /* restrained amber — BNB-adjacent without being neon */
+  --accent-foreground: 220 15% 6%;
+  --accent-2: 254 70% 65%;       /* indigo — paired with amber ONLY in the score-ring/hero
+                                     gradient, never used as a flat fill. Signature motif. */
+  --success: 142 60% 45%;
+  --warning: 38 92% 55%;
+  --danger: 0 72% 55%;
+  --font-sans: "Inter", ui-sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Hero backdrop: two soft radial fields in the amber/indigo pair, never a
+   flat gradient panel. Kept as a static background-image (not animated) so
+   prefers-reduced-motion users lose nothing. */
+.mesh-glow {
+  background-image:
+    radial-gradient(ellipse 60% 50% at 20% 10%, hsl(var(--accent) / 0.16), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 20%, hsl(var(--accent-2) / 0.18), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, hsl(var(--accent-2) / 0.06), transparent 70%);
+}
+
+.text-gradient {
+  background-image: linear-gradient(100deg, hsl(var(--accent)), hsl(var(--accent-2)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
