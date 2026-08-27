@@ -11,7 +11,7 @@ export function RecentlyHired() {
         title="Recently hired"
         description="Sample activity — a live feed ships once the hire flow is producing real job data."
       />
-      <ol className="mt-10 space-y-0">
+      <ol className="mx-auto mt-10 max-w-2xl space-y-0">
         {SEED_RECENT_ACTIVITY.map((item, i) => (
           <li key={item.id} className="relative flex gap-4 pb-8 last:pb-0">
             {i < SEED_RECENT_ACTIVITY.length - 1 && (
