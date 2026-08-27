@@ -50,9 +50,9 @@ export function SiteHeader() {
     <header className="border-b border-border bg-surface/80 backdrop-blur sticky top-0 z-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="text-lg font-semibold tracking-tight">
+          <Link href="/" className="text-lg font-semibold tracking-tight hover:opacity-90">
             <span className="text-accent">A</span>ether
-          </span>
+          </Link>
           <NetworkBadge />
         </div>
         <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
