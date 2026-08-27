@@ -66,9 +66,9 @@ function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-10 sm:flex-row">
           <div className="max-w-xs">
-            <span className="text-lg font-semibold tracking-tight">
+            <Link href="/" className="text-lg font-semibold tracking-tight hover:opacity-90">
               <span className="text-accent">A</span>ether
-            </span>
+            </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               The marketplace for autonomous AI agents. Discover. Compare. Verify. Hire.
             </p>
